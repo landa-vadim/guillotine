@@ -16,24 +16,25 @@ fun main() {
 
         println("\nВведите букву:")
         val enteredSymbol: String = readln()
+        val enteredSymbolChar = enteredSymbol[0]
         if (enteredSymbol.length != 1) {
             println("Вы ввели не один символ!")
             continue
         } else {
             val letterRange: CharRange = 'а'..'я'
-            if (enteredSymbol[0] in letterRange) {
-                if (positiveList.contains(enteredSymbol[0])) {
+            if (enteredSymbolChar in letterRange) {
+                if (positiveList.contains(enteredSymbolChar)) {
                     println("Такая буква уже есть!")
                     continue
                 }
-                if (wordCharArray.contains(enteredSymbol[0])) {
+                if (wordCharArray.contains(enteredSymbolChar)) {
                     if (positiveList.size < wordLength-1) {
                         println("Верно!")
                     } else {
                         println("Вы победили!")
                     }
                 } else {
-                    negativeList.add(enteredSymbol[0])
+                    negativeList.add(enteredSymbolChar)
                     if (negativeList.size == 1) println("|\n|\n|\n|")
                     if (negativeList.size == 2) println("/------------\n|\n|\n|\n|")
                     if (negativeList.size == 3) println("/------------\n|           |\n|\n|\n|")
@@ -41,7 +42,7 @@ fun main() {
                 }
 
                 for (i in wordCharArray) {
-                    if (enteredSymbol[0] == i) {
+                    if (enteredSymbolChar == i) {
                         positiveList.add(enteredSymbol[0])
                     }
                     if (positiveList.contains(i)) {
