@@ -1,44 +1,42 @@
 fun main() {
 
-    val word: List<String> = listOf("кресло", "шкаф", "кровать", "стол", "диван")
+    val words: List<String> = listOf("кукумбер", "креслок", "шкафш", "кроватьк", "столл", "диванн")
 
-    val vibor = word.random()?.toString()
-    val vibor2 = (vibor?.count())!!.toInt()
-    val vibory = vibor!!.toCharArray()
+    val word = words.random()
+    val wordLength = (word.count())
+    val wordCharArray = word.toCharArray()
 
-    val negative: MutableList<Char> = mutableListOf()
-    val positive: MutableList<Char> = mutableListOf()
+    val list1 = mutableListOf<Char>()
+    val list2 = mutableListOf<Char>()
 
     println("Отгадайте слово:")
-    println("*".repeat(vibor2))
+    println("*".repeat(wordLength))
 
-    while (negative.size < 4 && positive.size < vibor2) {
+    while (list1.size < 4 && list2.size < wordLength) {
 
         println("\nВведите букву:")
-        var vveli: Char = readln()!!.single()
-    if (positive.contains(vveli)) {
+        var readLine: Char = readln()!!.single()
+    if (list2.contains(readLine)) {
         println("Такая буква уже есть!")
         continue
     }
-        if (vibory.contains(vveli)) {
-            positive.add(vveli)
-            if (positive.size < vibor2)
+        if (wordCharArray.contains(readLine)) {
+                        if (list2.size < wordLength)
                 println("Верно!")
             else {
                 println("Вы победили!")
-                return
             }
         } else {
-            negative.add(vveli)
-            if (negative.size == 1) println("|\n|\n|\n|")
-            if (negative.size == 2) println("/------------\n|\n|\n|\n|")
-            if (negative.size == 3) println("/------------\n|           |\n|\n|\n|")
-            if (negative.size == 4) println("/------------\n|           |\n|           *\n|          /\\ \n|          /\\ \nВы проиграли!")
+            list1.add(readLine)
+            if (list1.size == 1) println("|\n|\n|\n|")
+            if (list1.size == 2) println("/------------\n|\n|\n|\n|")
+            if (list1.size == 3) println("/------------\n|           |\n|\n|\n|")
+            if (list1.size == 4) println("/------------\n|           |\n|           *\n|          /\\ \n|          /\\ \nВы проиграли!")
         }
 
-        for (i in vibory) {
-            var a = i == vveli || positive.contains(i)
-            if (a) print(i)
+        for (i in wordCharArray) {
+            if (readLine == i) list2.add(readLine)
+                 if (list2.contains(i)) print(i)
             else print("*")
         }
     }
