@@ -1,5 +1,3 @@
-import kotlin.collections.mutableListOf as mutableListOf1
-import kotlin.collections.mutableListOf as mutableListOf2
 fun main() {
 
     val word: List<String> = listOf("кресло", "шкаф", "кровать", "стол", "диван")
@@ -8,8 +6,8 @@ fun main() {
     val vibor2 = (vibor?.count())!!.toInt()
     val vibory = vibor!!.toCharArray()
 
-    val negative: MutableList<Char> = mutableListOf1()
-    val positive: MutableList<Char> = mutableListOf2()
+    val negative: MutableList<Char> = mutableListOf()
+    val positive: MutableList<Char> = mutableListOf()
 
     println("Отгадайте слово:")
     println("*".repeat(vibor2))
