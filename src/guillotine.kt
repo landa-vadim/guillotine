@@ -9,17 +9,12 @@ fun main() {
 
     val negativeList = mutableListOf<Char>()
     val positiveList = mutableListOf<Char>()
-
-    // в этой строчке ты присваиваешь в переменную значение размера списка на текущий момент
-    // если список изменится, эта переменная не обновится автоматически и всегда будет равна 0 (об этом подсвечивает студия)
     val negativeListSize = negativeList.size
-    // в этой строчке аналогично
     val positiveListSize = positiveList.size
 
     println("Отгадайте слово:")
     println("*".repeat(wordLength))
 
-    // здесь из-за этого мы получаем while(true) - сможем выйти только через return-ы ниже
     while (negativeListSize < 4 && positiveListSize < wordLength) {
         println("\nВведите букву:")
         val enteredSymbol: String = readln()
@@ -70,13 +65,10 @@ fun main() {
     }
 }
 
-
-// не совсем такие я функции имел в виду, в таких действительно большого смысла нет
-// вообще функция у которой тело состоит из одной строчки это чаще всего антипаттерн, т.е. лучше не писать
 fun enteredLenghtCheck(enteredSymbol: String): Boolean {
     val enteredLenghtCheck = enteredSymbol.length != 1
     return (enteredLenghtCheck)
-}
+    }
 
 fun enteredSymbolCharRangeCheck(enteredSymbolChar: Char, letterRange: CharRange): Boolean {
     val enteredSymbolRangeCheck = enteredSymbolChar in letterRange
@@ -96,23 +88,4 @@ fun rightCharCheck(wordCharArray: CharArray, enteredSymbolChar: Char): Boolean {
 fun positiveListSizeCheck(positiveList: List<Char>, wordLength: Int): Boolean {
     val positiveListSizeCheck = positiveList.size < wordLength-1
     return positiveListSizeCheck
-}
-
-/**
- * Функция которая проверяет введен ли валидный символ c консоли
- *  true - если символ валидный
- *  false - если нет
- *  дополнительно печатает причину
- */
-fun isValidSymbol(inputString: String): Boolean {
-    if (inputString.length != 1) {
-        println("Такая буква уже есть!")
-        return false
-    }
-    val letterRange: CharRange = 'а'..'я'
-    if (inputString[0] !in letterRange) {
-        println("Введенный символ - не буква из кириллицы!")
-        return false
-    }
-    return true
 }
