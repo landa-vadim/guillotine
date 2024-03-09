@@ -28,7 +28,7 @@ fun main() {
             )
         ) {
             if (countEnteredSymbols >= 1) {
-                for (i in 1..wordCharArray.count(predicate)) {
+                for (i in 1..countEnteredSymbols) {
                     positiveList.add(enteredSymbolChar)
                 }
                 for (i in wordCharArray) {
